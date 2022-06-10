@@ -1,0 +1,14 @@
+cd collections
+rm *
+cd ..
+cd vectors
+rm *
+cd ..
+cd norm
+rm *
+cd ..
+rm temp2.txt
+rm temp.txt
+rm tempx.txt
+rm sorted_tokens.txt
+rm query_unit_vector.txt
