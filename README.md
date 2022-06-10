@@ -2,5 +2,5 @@
 
 |Nombre|Participacion|Nota
 |-|-|-|
-Francisco Magot|Creacion del indice en memoria secundaria, topk y servicio web|-|
-Eric Bracamonte|Creacion del indice en memoria secundaria, topk y servicio web|-|
+Francisco Magot|Creacion del indice en memoria secundaria, conexion con postgres, topk y servicio web|-|
+Eric Bracamonte|Creacion del indice en memoria secundaria, conexion con postgres,topk y servicio web|-|
