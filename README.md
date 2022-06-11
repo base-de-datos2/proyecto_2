@@ -5,6 +5,11 @@
 Francisco Magot|Creacion del indice en memoria secundaria, conexion con postgres, topk y servicio web|-|
 Eric Bracamonte|Creacion del indice en memoria secundaria, conexion con postgres,topk y servicio web|-|
 
+
+> Video de demostración
+
+https://youtu.be/9dS-W3B6TUo
+
 > Levantar el proyecto
 
 Se tiene que estar en un sistema operativo POSIX (LINUX o MAC) y, con un usuario postgres, correr el script *database.sql* (tambien se 
@@ -31,3 +36,8 @@ Este procedimiento se ejecutará hasta que no hayan más tweets por procesar. Un
 > Similitud de coseno
 
 Una vez completado el proceso del merge, para cada uno de los documentos, se calculará un vector unitario en base a la ocurrencia y la rareza de los términos que contiene (peso tf-idf). Esto es calculado para luego poder hacer un producto punto entre dos vectores distintos y comparar su similitud.
+
+> Construccion del indice en postgres
+
+Se creó una tabla tweets que tuviera como un id y los mismos atributos de ds0.csv. Después de insertar los datos se le agrego una nueva columna,
+weighted_tsv, que sería un tsvector. Finalmente, se le aplico un índice GIN a dicho vector.  
