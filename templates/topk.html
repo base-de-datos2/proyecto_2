@@ -37,7 +37,11 @@
   <div class="column" >
     <h2>Postgres</h2>
     <ol>
-    <li>Tweet 1</li>
+    {% for tweet in tweets_postgres %}
+    <li> Tweet {{tweet[1]}} con similitud {{tweet[0]}}:</li><br>
+    <p>{{tweet[2]}}</p>
+    {% endfor %}
+    <br>
     </ol>
   </div>
 </div>
