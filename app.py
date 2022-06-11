@@ -19,8 +19,8 @@ def query():
     k = request.args.get('k')
     start = time.time()
     keys, dict = create_tf_query(procesamiento(text))
-    create_unit_vector_query('sorted_tokens.txt', 1009 -1 , keys, dict)
-    tweets = topk(1009 -1, int(k))
+    create_unit_vector_query('sorted_tokens.txt', 2507 -1 , keys, dict)
+    tweets = topk(2507 -1, int(k))
 
     tiempo_spimi = time.time() - start
 
@@ -37,7 +37,7 @@ def query():
     start = time.time()
     query_string = """SELECT id, texto, ts_rank_cd(weighted_tsv, query) AS rank
                 FROM tweets, plainto_tsquery('english', \'""" + query_text_postgres +  """\') query
-                WHERE query @@ weighted_tsv and id < 1009
+                WHERE query @@ weighted_tsv and id < 2507 
                 ORDER BY rank DESC
                 LIMIT """ + k  +  """;"""
     tiempo_postgres = time.time() - start

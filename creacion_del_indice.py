@@ -524,7 +524,7 @@ def dotproduct(tweet, query):
 def store_tweets():
     n_id_tweet = 1
     df = pd.read_csv('ds0.csv')
-    for i in range(1, 1009):
+    for i in range(1, 2506):
         with open('tweets/tweet_id_' + str(i).zfill(6) + '.txt', 'a') as tweet_file:
             tweet_file.write(str(df.iloc[i-1,0]))
 
@@ -551,7 +551,9 @@ def topk(n_id_tweet, K):
 
     result = []
     while not h.empty():
-        result = [h.get()] + result
+        temp = h.get()
+        if temp[0] != 0:
+            result = [temp] + result
 
     return result
 
@@ -560,7 +562,7 @@ def topk(n_id_tweet, K):
 # #tamanio total 311206
 # n_id_tweet = 1
 # big_blocks = 0 
-# for n_page in range(0,1000,14):
+# for n_page in range(0,2500,14):
     
 #     print(n_page)
 #     df = pd.read_csv('ds0.csv',skiprows=n_page,nrows=14)
@@ -573,6 +575,7 @@ def topk(n_id_tweet, K):
 #     write_to_memory(sorted(block_dictionary.keys()),block_dictionary)
 #     big_blocks += 1
 
+# print(n_id_tweet)
 # merge('temp.txt',big_blocks)
 
 

@@ -1,0 +1,1 @@
+Cumulative #covid19 counts for 6 communities in LA County with the most cases, more, including the code to parse data from @lapublichealth that this is based on, at  https://t.co/sXHTGwjUwv https://t.co/XyIZ9zn61N
