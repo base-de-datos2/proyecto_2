@@ -11,8 +11,8 @@ from pathlib import Path
 BLOCKSIZE = 4096
 
 
-nltk.download('punkt')
-nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('stopwords')
 
 stemmer = SnowballStemmer('english')
 

@@ -26,6 +26,7 @@
 <div class="row">
   <div class="column" >
     <h2>Score del coseno</h2>
+    <h5>({{tiempo_spimi}} s)</h5>
     <ol>
     {% for tweet in tweets %}
     <li> Tweet {{tweet[1]}} con similitud {{tweet[0]}}:</li><br>
@@ -36,6 +37,7 @@
   </div>
   <div class="column" >
     <h2>Postgres</h2>
+    <h5>({{tiempo_postgres}} s)</h5>
     <ol>
     {% for tweet in tweets_postgres %}
     <li> Tweet {{tweet[1]}} con similitud {{tweet[0]}}:</li><br>
