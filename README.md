@@ -6,6 +6,7 @@ Francisco Magot|Creacion del indice en memoria secundaria, conexion con postgres
 Eric Bracamonte|Creacion del indice en memoria secundaria, conexion con postgres,topk y servicio web|-|
 
 > Levantar el proyecto
+
 Se tiene que estar en un sistema operativo POSIX (LINUX o MAC) y, con un usuario postgres, correr el script *database.sql* (tambien se 
 tendria que cambiar password en el connect de *app.py*). Luego, ejecutar *init_index.py*. Finalmente, prender el servidor de flask con el 
 commando *python app.py*.
