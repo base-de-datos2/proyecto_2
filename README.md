@@ -10,7 +10,7 @@ Eric Bracamonte|Creacion del indice en memoria secundaria, conexion con postgres
 
 Este motor de búsqueda funciona con una colección de tweets conseguidos del siguiente enlace: https://www.kaggle.com/harshrey/tweets-covid-sentimentvalues. Todos son tweets relacionados al COVID-19. Consiste de 3 columnas de las cuales solo se utilizará la que contiene el contenido del tweet. Un tweet por naturaleza tiene un límite de 280 caracteres por tweet.
 
-- Construcción del indice invertido
+> Construcción del indice invertido
 
 Para construir el indice invertido, hemos utilizado el método de SPIMI (Single pass in memory indexing). Para esto, hemos calculado cuantos tweets entrarían en una página de memoria en el peor caso (este siendo que todos los 280 caracteres haya sido utilizados) y esto sería 14 tweets por página (piso de: 4096B en una página / 280 caracteres por tweet = 14 tweets por página). Este número se utilizará para procesar los tweets en bloques de 14 por cada iteración del SPIMI. 
 
@@ -22,6 +22,6 @@ Para un bloque de tweets se hace el siguiente procedimiento:
 
 Este procedimiento se ejecutará hasta que no hayan más tweets por procesar. Una vez terminado el proceso, se procedará a llamar a la función "merge". Esta función tiene el propósito de cargar bloque por bloque del archivo de tokens y juntarlos en orden alfabético.
 
-- Similitud de coseno
+> Similitud de coseno
 
 Una vez completado el proceso del merge, para cada uno de los documentos, se calculará un vector unitario en base a la ocurrencia y la rareza de los términos que contiene (peso tf-idf). Esto es calculado para luego poder hacer un producto punto entre dos vectores distintos y comparar su similitud.
