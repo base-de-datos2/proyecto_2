@@ -417,7 +417,7 @@ def create_tf_query(query_tokens):
         if query_tf.get(tok):
             query_tf[tok] += 1
         else:
-            query_tf[tok] = 0
+            query_tf[tok] = 1 
     
     return (sorted(query_tf.keys()),query_tf)
 
@@ -449,7 +449,9 @@ def create_unit_vector_query(sorted_tokens_file_name,n_tweets,sorted_keys_query,
                     break
 
                 if tok == sorted_keys_query[p]:
-                    tf_dictionary[sorted_keys_query[p]] *= idf
+                    tf = tf_dictionary[sorted_keys_query[p]]
+                    tf_dictionary[sorted_keys_query[p]] = np.log10(1 + int(tf))*idf
+
                     norm += tf_dictionary[sorted_keys_query[p]]*tf_dictionary[sorted_keys_query[p]]
                     p = p+1
 
@@ -524,9 +526,9 @@ def store_tweets():
     df = pd.read_csv('ds0.csv')
     for i in range(1, 1009):
         with open('tweets/tweet_id_' + str(i).zfill(6) + '.txt', 'a') as tweet_file:
-            tweet_file.write(str(df.iloc[i,0]))
+            tweet_file.write(str(df.iloc[i-1,0]))
 
-store_tweets()
+# store_tweets()
 
 
 def topk(n_id_tweet, K):
