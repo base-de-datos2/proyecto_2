@@ -6,7 +6,7 @@ Francisco Magot|Creacion del indice en memoria secundaria, conexion con postgres
 Eric Bracamonte|Creacion del indice en memoria secundaria, conexion con postgres,topk y servicio web|-|
 
 
-- Dominio de Datos
+> Dominio de Datos
 
 Este motor de búsqueda funciona con una colección de tweets conseguidos del siguiente enlace: https://www.kaggle.com/harshrey/tweets-covid-sentimentvalues. Todos son tweets relacionados al COVID-19. Consiste de 3 columnas de las cuales solo se utilizará la que contiene el contenido del tweet. Un tweet por naturaleza tiene un límite de 280 caracteres por tweet.
 
