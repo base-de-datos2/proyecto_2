@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+</style>
+</head>
+<body>
+
+<h2>Top k results</h2>
+
+<div class="row">
+  <div class="column" >
+    <h2>Score del coseno</h2>
+    <ol>
+    {% for tweet in tweets %}
+    <li> Tweet {{tweet[1]}} con similitud {{tweet[0]}}:</li><br>
+    <p>{{tweet[2]}}</p>
+    {% endfor %}
+    <br>
+    </ol>
+  </div>
+  <div class="column" >
+    <h2>Postgres</h2>
+    <ol>
+    <li>Tweet 1</li>
+    </ol>
+  </div>
+</div>
+
+</body>
+</html>

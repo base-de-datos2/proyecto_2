@@ -519,21 +519,32 @@ def dotproduct(tweet, query):
     return score
 
 
+def store_tweets():
+    n_id_tweet = 1
+    df = pd.read_csv('ds0.csv')
+    for i in range(1, 1009):
+        with open('tweets/tweet_id_' + str(i).zfill(6) + '.txt', 'a') as tweet_file:
+            tweet_file.write(str(df.iloc[i,0]))
+
+store_tweets()
+
+
 def topk(n_id_tweet, K):
     h = PriorityQueue()
 
     for tweet in range(1, n_id_tweet - 1):
         tweet_vector = 'norm/tweet_id_' + str(tweet).zfill(6)
         query_vector = 'query_unit_vector.txt'
-        with open(tweet_vector) as curr_tweet, open(query_vector) as query:
+        with open(tweet_vector) as curr_tweet, open(query_vector) as query,open('tweets/tweet_id_' + str(tweet).zfill(6) + '.txt','r') as tweet_content:
+            content = tweet_content.readline()
             score = dotproduct(curr_tweet, query)
             if len(h.queue) < K:
-                h.put((score,tweet))
+                h.put((score,tweet,content))
             else :
                 top = h.queue[0]
                 if score > top[0]:
                     h.get()
-                    h.put((score,tweet))
+                    h.put((score,tweet, content))
     
 
     result = []
@@ -541,7 +552,6 @@ def topk(n_id_tweet, K):
         result = [h.get()] + result
 
     return result
-
 
 
 # postings_list = 0
